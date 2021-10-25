@@ -1,0 +1,333 @@
+/* ********************* HOME ********************************** */
+
+
+body {
+    font-family: 'Poiret One';
+    color:#566573;
+    background:#D6DBDF; 
+    margin: 1rem;
+}
+h4 {
+    font-family: 'Poiret One';
+    color: #566573;
+    font-weight: lighter;
+    font-size: 6rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+.ct-chart-line {
+    border: solid grey ;
+    border-width: thin;
+    border-radius: 5%;
+    color: black;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    width: 74%;
+}
+.ct-line{
+    stroke: #5DADE2;
+    stroke-width: 10px;
+}
+.ct-point {
+    stroke: #5DADE2;
+}
+.ct-chart.ct-perfect-fourth {
+    width: 85%; 
+}
+.ct-label.ct-horizontal { 
+    position: relative; 
+    /* transform: rotate(45deg);  */
+    transform-origin: left top; 
+    color: black;
+    font-size: 0.6rem;
+    font-weight: bold;
+}
+.ct-label.ct-vertical{
+    color: black;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+#h3_h {
+    font-family: 'Poiret One';
+    color:#EC7063;
+    font-size: 1.8rem;
+    text-align: right;
+    width: 100%;
+    font-weight:900;
+}
+#buttonHome {
+    border: unset;
+    background-color:#D6DBDF; 
+    position: absolute;
+    z-index: 2;
+  }
+  #img_start {
+    width: 17%;
+    margin-left: 60%;
+  }
+#quizGraphic {
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    z-index: 2;
+    position: absolute;
+    margin-left: 0.6rem;
+  }
+#dificultad {
+    z-index: 3;
+    position: absolute;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+
+/* ********************** QUIZ *********************** */
+h2 {
+    /* margin-top: 3em; */
+    margin-bottom: 1.5em;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;  
+}
+.divDom {
+    display: flex;
+    flex-direction: column;  
+    margin: 0 2rem 0 2rem;
+}
+.buttonDom {
+    padding: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+    border-style: solid;
+    border-radius: 15px;
+    background-color:#A3E4D7;
+    border-color: #76D7C4;
+    outline:none;
+}
+.botonClickado.buttonDom {
+    background-color:#F5B7B1;
+}
+.buttonNext {
+    margin-top: 3rem;
+    margin-left: 79%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-style: solid;
+    border-radius: 10px;
+    outline: none;
+    background-color: #D6DBDF;
+}
+#contador{
+    margin-top: 2.5rem;
+    position: fixed;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: unset;
+}
+#p_cont {
+    font-size: 1.5rem ;
+    margin:unset;
+
+}
+/* ************************* RESULTS *************************************** */
+
+.button_res {
+    margin-top: 3rem;
+    background-color:#D6DBDF ;
+    border: unset;
+    width: 100%;
+}
+#h2_res {
+    margin-top: 1.5rem;
+}
+#img_playagain{
+    width: 35%;
+}
+#p_img {
+    color:#566573 ;
+    font-weight: bold;
+}
+#h3_res {
+    font-family: 'Poiret One';
+    color:#EC7063;
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+}
+#p_res {
+    font-size: 2.5rem;
+}
+
+   /* *************** Responsive *******************  */
+
+   @media screen and (min-width: 768px){
+
+    /*  HOME */
+    h4 {
+        font-size: 8rem;
+        margin-bottom: 0;
+    }
+    .ct-chart.ct-perfect-fourth {
+        width: 48%; 
+    }
+    .ct-chart-line {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        overflow:auto;
+    }
+    #h3_h {
+        font-size: 2rem; 
+        margin-bottom: 2rem;
+        text-align: unset;
+        margin-left: 60%;
+    }
+    #buttonHome {
+        width: 100%;
+        position: absolute;
+        z-index: 1; 
+    }
+    #img_start {
+        width: 10%;
+        margin-left: 67%;
+    }
+    #quizGraphic {
+        z-index: 2;  
+        margin: 1rem 1rem 0.5rem 1rem;
+    }
+    #dificultad {
+        margin-left: 26rem;
+        font-weight: bold;
+        margin-top: 1rem;
+        font-size: 1.2rem;
+    }
+    /* QUIZ */
+    h2 {
+        margin-top: 3rem;
+        margin-bottom: 3em;
+        font-size: 1.8rem;
+    }
+    .divDom{
+        flex-flow: row wrap;
+        justify-content: space-around;
+        margin: 0 2rem 0 2rem;
+    }
+    .buttonDom{
+        width: 48%;
+        height: 70px;
+        margin: 2% 0%;
+        font-size: 140%;
+    }
+   .buttonNext {
+        margin-left: 85%;
+        font-size: 170%
+    }
+   #contador {
+        margin-left: 3rem;
+        font-size: 4rem;
+        margin-top: 2.5rem; 
+    }
+
+  /* RESULTADO */
+
+    #img_playagain{
+        width: 23%;
+    }
+    #p_img {
+        font-size: 1.5rem;
+    }
+
+}
+@media screen and (min-width: 1366px) {
+
+    /*  HOME */
+    h4 {
+        font-size: 8rem;
+        margin-bottom: unset;
+        margin-top: unset;
+        margin-left: 2rem;
+    }
+    .ct-chart.ct-perfect-fourth {
+        width: 28%; 
+    }
+    #quizGraphic {
+        margin: 0rem 1rem 3rem 2rem;
+    }
+    #img_start {
+        width: 11%;
+        margin-left: 60%;
+    }
+    
+    #dificultad {
+        margin-left: 35rem;
+        font-weight: bold;
+        font-size: 1.5rem;
+        margin-top: unset;
+    }
+    #h3_h {
+        font-size: 2.5rem; 
+        margin-top: unset;
+        margin-left: 68%;
+    }
+
+    /* QUIZ */
+
+    h2 {
+        margin-top: 1rem;
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    .divDom{
+        margin: 0 2.5rem 0 2.5rem;
+    }
+    .buttonDom{
+        height: 72px;
+        font-size: 147%;
+   }
+   .buttonNext {
+        margin-left: 90%;
+        font-size: 2rem;
+        margin-bottom: unset;
+   }
+   #contador {
+        font-size: 3rem; 
+        margin-top: unset;   
+    }
+
+  /* RESULTADO */
+  .button_res {
+         margin: unset;
+    }
+    #h3_res {
+        font-size: 3.5rem; 
+    }
+    #p_res {
+        font-size: 2rem;
+    }
+    #img_playagain{
+        width: 10%;
+    }
+    #p_img {
+        font-size: 1.5rem;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
