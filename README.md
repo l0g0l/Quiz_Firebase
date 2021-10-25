@@ -1,5 +1,5 @@
-# QuizResurrection
-EJERCICIO: Quiz 
+# Quiz-FireBase
+
 
 Objetivo
 
@@ -16,5 +16,11 @@ FASE 3: Asincronía Javascript: Manejo de asincronía. Leer 5 preguntas random d
 
 Ventanas home.html. Página de bienvenida + gráfica de últimos resultados question.html SPA. Página para renderizar las 10 distintas preguntas results.html Página para mostrar resultado del quiz Vista móvil Logo
 
-Vista pc/tablet Logo Logo Logo
+Vista pc/tablet/movil
+
+Tecnologías:
+
+HTML, CSS y JavaScript
+
+Desplegado en GithubPages
 
