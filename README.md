@@ -24,3 +24,9 @@ HTML, CSS y JavaScript
 
 Desplegado en <a href="https://l0g0l.github.io/Quiz_Firebase/">GithubPages </a>
 
+
+
+App Overview
+
+<img src="/img/quiz_movil.gif">
+

@@ -14,21 +14,21 @@ let aciertosDown;
 let erroresDown;
 
 // ************************ QUIZ **********************************
-//decodificar caracteres '', "", y acentos a código
-(function(window){
+//decodificar caracteres '', "", y acentos a código HTML
+(function (window) {
   window.htmlentities = {
     /**
      * Convierte una cadena a sus caracteres html por completo.
      *
      * @param {String} str String with unescaped HTML characters
      **/
-    encode : function(str) {
+    encode: function (str) {
       var buf = [];
-      
-      for (var i=str.length-1;i>=0;i--) {
+
+      for (var i = str.length - 1; i >= 0; i--) {
         buf.unshift(['&#', str[i].charCodeAt(), ';'].join(''));
       }
-      
+
       return buf.join('');
     },
     /**
@@ -36,8 +36,8 @@ let erroresDown;
      *
      * @param {String} str htmlSet entities
      **/
-    decode : function(str) {
-      return str.replace(/&#(\d+);/g, function(match, dec) {
+    decode: function (str) {
+      return str.replace(/&#(\d+);/g, function (match, dec) {
         return String.fromCharCode(dec);
       });
     }
@@ -46,26 +46,27 @@ let erroresDown;
 
 
 function getPreguntas(a) {
-  
+
   let hide_gr = document.getElementById("quizHome"); // Oculta tanto el botón de comienzo del juego como el gráfico
   hide_gr.style.display = "none";
   let hide_ho = document.getElementById("grafica");
   hide_ho.style.display = "none";
-  
-  
+
+
   fetch("https://opentdb.com/api.php?amount=5&category=10&difficulty=" + a + "&type=multiple")
-  .then(item => item.json())
-  .then(data => {
-    preguntas = data.results;// Arr con los datos 
-    console.log(preguntas)  
-    console.log(htmlentities)
-     
-    preguntas.forEach((element, index) => { // le hago un Foreach para que itere sobre "preguntas" y con cada una de las preguntas coja la función printQuestion, que lo que hace es pintar los botones y engancharlos en el DOM
+    .then(item => item.json())
+    .then(data => {
+      preguntas = data.results;// Arr con los datos 
+      console.log(preguntas)
+      console.log(htmlentities)
+
+      preguntas.forEach((element, index) => { // le hago un Foreach para que itere sobre "preguntas" y con cada una de las preguntas coja la función printQuestion, que lo que hace es pintar los botones y engancharlos en el DOM
         diff = element.difficulty
         contador = (index + 1);
         let respuestas = element.incorrect_answers.concat(element.correct_answer)
         let respuestasDesord = respuestas.sort(() => .5 - Math.random()) // esto es para que salgan las respuestas aleatoriamente colocadas
 
+        //le hago aqui en htmlentities ya que solo recibe por parámetro un string
         printQuestions(htmlentities.decode(element.question), respuestasDesord, element.correct_answer, contador, preguntas.length, diff)// estos son los valores de los parámetros que luego paso a la función PirintQuestion. SON POSICIONALES, por tanto element.question equivale al primera parámetro preguntas...y asi...
         let hide = document.getElementById("seccion_1"); // cuando genrea la primera pregunta, la pone en visible (ya que partimos de que están ocultas todas), solo la primera ya que el id es de la primera sección
         hide.style.display = "block";
@@ -137,7 +138,7 @@ function printQuestions(pregunta, respuestas, correcta, contador, longitud, diff
         // window.alert(txt[x])
       } else {
         errores += 1;
-        alert(`Ohh no...Sashay Away!! The correct answer is : ${correcta}`)
+        // alert(`Ohh no...Sashay Away!! The correct answer is : ${correcta}`)
       }
       let botones = document.getElementsByClassName("buttonDom"); // vuelvo a copiar esta acción para que pinte todos los botones de nuevo  a la clase botonDom para que si no se contesta a una pregunta, sale el alert
       Array.from(botones).forEach(element => {
