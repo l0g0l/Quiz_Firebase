@@ -15,6 +15,7 @@ let erroresDown;
 
 // ************************ QUIZ **********************************
 
+
 function getPreguntas(a) {
 
   let hide_gr = document.getElementById("quizHome"); // Oculta tanto el botón de comienzo del juego como el gráfico
@@ -22,12 +23,44 @@ function getPreguntas(a) {
   let hide_ho = document.getElementById("grafica");
   hide_ho.style.display = "none";
 
+  //decodificar caracteres '', "", y acentos a código HTML
+  (function(window){
+    window.htmlentities = {
+      /**
+       * Convierte una cadena a sus caracteres html por completo.
+       *
+       * @param {String} str String with unescaped HTML characters
+       **/
+      encode : function(str) {
+        var buf = [];
+        
+        for (var i=str.length-1;i>=0;i--) {
+          buf.unshift(['&#', str[i].charCodeAt(), ';'].join(''));
+        }
+        
+        return buf.join('');
+      },
+      /**
+       * Convierte un conjunto de caracteres html en su carácter original.
+       *
+       * @param {String} str htmlSet entities
+       **/
+      decode : function(str) {
+        return str.replace(/&#(\d+);/g, function(match, dec) {
+          return String.fromCharCode(dec);
+        });
+      }
+    };
+  })(window);
+  console.log(htmlentities)
+
   fetch("https://opentdb.com/api.php?amount=5&category=10&difficulty=" + a + "&type=multiple")
     .then(item => item.json())
     .then(data => {
-      preguntas = data.results;// Arr con los datos   
+      preguntas = data.results;// Arr con los datos 
+      console.log(preguntas)  
 
-      preguntas.forEach((element, index) => { // le hago un Foreach para que itere sobre "preguntas" y con cada una de las preguntas coja la función printQuestion, que lo que hace es pintar los botones y engancharlos en el DOM
+      htmlentities.decode(preguntas.forEach((element, index) => { // le hago un Foreach para que itere sobre "preguntas" y con cada una de las preguntas coja la función printQuestion, que lo que hace es pintar los botones y engancharlos en el DOM
         diff = element.difficulty
         contador = (index + 1);
         let respuestas = element.incorrect_answers.concat(element.correct_answer)
@@ -37,7 +70,7 @@ function getPreguntas(a) {
         let hide = document.getElementById("seccion_1"); // cuando genrea la primera pregunta, la pone en visible (ya que partimos de que están ocultas todas), solo la primera ya que el id es de la primera sección
         hide.style.display = "block";
 
-      });
+      }));
     });
 };
 
