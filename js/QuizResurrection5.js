@@ -67,7 +67,7 @@ function getPreguntas(a) {
         let respuestasDesord = respuestas.sort(() => .5 - Math.random()) // esto es para que salgan las respuestas aleatoriamente colocadas
 
         //le hago aqui en htmlentities ya que solo recibe por parámetro un string
-        printQuestions(htmlentities.decode(element.question), respuestasDesord, element.correct_answer, contador, preguntas.length, diff)// estos son los valores de los parámetros que luego paso a la función PirintQuestion. SON POSICIONALES, por tanto element.question equivale al primera parámetro preguntas...y asi...
+        printQuestions(htmlentities.decode(element.question), respuestasDesord, element.correct_answer, contador, preguntas.length, diff)// estos son los valores de los parámetros que luego paso a la función PrintQuestion. SON POSICIONALES, por tanto element.question equivale al primera parámetro preguntas...y asi...
         let hide = document.getElementById("seccion_1"); // cuando genrea la primera pregunta, la pone en visible (ya que partimos de que están ocultas todas), solo la primera ya que el id es de la primera sección
         hide.style.display = "block";
 
@@ -76,7 +76,10 @@ function getPreguntas(a) {
 };
 
 const mainDom = document.createElement("main");// creo el main fuera de la func prinQuestion, que a su vez está en la funcion getPreguntas (esta es la que va a crear tantas preguntas como haya) ya que no quiero que me cree un main por cada pregunta que cree, no quiero 10 main, quiero solo 1
-document.body.appendChild(mainDom);
+const divcontainer = document.createElement("div");
+divcontainer.setAttribute("class", "container")
+divcontainer.appendChild(mainDom);
+document.body.appendChild(divcontainer);
 
 function printQuestions(pregunta, respuestas, correcta, contador, longitud, diff) {
   contFin = (contador + "/" + longitud); // Contador de preguntas. Lo pongo al comiezo para que empiece a contabilizar desde la pregunta 1, si lo pongo debajo de prinQuestion, la pregunta 1 sale como undefined

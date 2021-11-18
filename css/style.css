@@ -1,10 +1,15 @@
 /* ********************* HOME ********************************** */
-
+.container {
+  width: 414px;
+  height: 736px;
+} 
 body {
+ 
   font-family: "Poiret One";
   color: #566573;
   background: #d6dbdf;
-  margin: 1rem;
+  margin: unset;
+  
 }
 h4 {
   font-family: "Poiret One";
@@ -46,13 +51,17 @@ h4 {
   font-weight: bold;
   font-size: 0.8rem;
 }
+h3 {
+  margin: unset;
+}
 #h3_h {
   font-family: "Poiret One";
   color: #ec7063;
   font-size: 1.8rem;
-  text-align: right;
+  text-align:  center;
   width: 100%;
   font-weight: 900;
+  margin-bottom: 20px;
 }
 #buttonHome {
   border: unset;

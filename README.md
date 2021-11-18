@@ -22,7 +22,7 @@ Tecnologías:
 
 HTML, CSS y JavaScript
 
-Desplegado en <a href="https://l0g0l.github.io/Quiz_Firebase/">GithubPages </a>
+Desplegado en <a href="https://l0g0l.github.io/Quiz_LocalStorage/">GithubPages </a>
 
 
 
