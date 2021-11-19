@@ -78,7 +78,15 @@ function getPreguntas(a) {
 const mainDom = document.createElement("main");// creo el main fuera de la func prinQuestion, que a su vez está en la funcion getPreguntas (esta es la que va a crear tantas preguntas como haya) ya que no quiero que me cree un main por cada pregunta que cree, no quiero 10 main, quiero solo 1
 const divcontainer = document.createElement("div");
 divcontainer.setAttribute("class", "container")
-divcontainer.appendChild(mainDom);
+const iframecontainer = document.createElement("iframe");
+iframecontainer.setAttribute("class", "iframecontainer")
+iframecontainer.setAttribute("src", "https://l0g0l.github.io/Quiz_LocalStorage/")
+divcontainer.appendChild(iframecontainer);
+iframecontainer.appendChild(mainDom);
+
+
+
+
 document.body.appendChild(divcontainer);
 
 function printQuestions(pregunta, respuestas, correcta, contador, longitud, diff) {
